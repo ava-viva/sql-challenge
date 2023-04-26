@@ -1,0 +1,46 @@
+# Employees Data Modeling
+
+
+departments
+-----------
+# Department number: primary key
+dept_no VARCHAR PK
+dept_name VARCHAR
+
+titles
+-----------
+# Title id :primary key
+title_id VARCHAR PK
+title VARCHAR
+
+employees
+-----------
+# Employees numbe : primary key
+emp_no INT PK
+# Title id: foreign key
+emp_title_id VARCHAR FK >- titles.title_id
+birth_date DATE
+first_name VARCHAR
+last_name VARCHAR
+sex VARCHAR
+hire_date DATE
+
+dept_emp
+-----------
+# Employees number : foreign key 
+emp_no INT FK >- employees.emp_no
+# Department number: foreign key 
+dept_no VARCHAR FK >- departments.dept_no
+
+dept_manager
+-----------
+# Department number: foreign key
+dept_no VARCHAR FK >- departments.dept_no
+# Employees number : foreign key 
+emp_no INT FK >- employees.emp_no
+
+salaries
+-----------
+# Employees number : foreign key 
+emp_no INT FK >- employees.emp_no
+salary INT
